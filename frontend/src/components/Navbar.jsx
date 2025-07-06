@@ -19,16 +19,34 @@ const Navbar = () => {
 
   const isActive = (path) => location.pathname === path;
 
+  // Custom logo component
+  const WattyLogo = () => (
+    <div className="flex items-center space-x-3">
+      <div className="relative">
+        {/* Logo Container with gradient background */}
+        <div className="w-10 h-10 bg-gradient-to-br from-blue-500 via-purple-500 to-blue-600 rounded-lg flex items-center justify-center shadow-lg">
+          {/* Letter W with modern styling */}
+          <span className="text-white font-bold text-xl font-mono">W</span>
+        </div>
+        {/* Small accent dot */}
+        <div className="absolute -top-1 -right-1 w-3 h-3 bg-gradient-to-r from-yellow-400 to-orange-500 rounded-full"></div>
+      </div>
+      <div className="flex flex-col">
+        <span className="text-xl font-bold bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent leading-tight">
+          Watty Eventice
+        </span>
+        <span className="text-xs text-slate-400 leading-tight">Frontend Developer</span>
+      </div>
+    </div>
+  );
+
   return (
     <nav className="bg-slate-900/95 backdrop-blur-md fixed top-0 w-full z-50 transition-all duration-300 border-b border-slate-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-2">
-            <Code className="h-8 w-8 text-blue-500" />
-            <span className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
-              Watty Eventice
-            </span>
+          <Link to="/" className="flex items-center">
+            <WattyLogo />
           </Link>
 
           {/* Desktop Navigation */}
@@ -69,8 +87,7 @@ const Navbar = () => {
               <SheetContent side="right" className="w-[300px] bg-slate-900/95 backdrop-blur-md border-slate-800">
                 <SheetHeader>
                   <SheetTitle className="text-blue-400 text-xl flex items-center space-x-2">
-                    <Code className="h-6 w-6" />
-                    <span>Watty Eventice</span>
+                    <WattyLogo />
                   </SheetTitle>
                   <SheetDescription className="text-slate-400">
                     Frontend Developer Portfolio
