@@ -1,26 +1,46 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Facebook, Instagram, Twitter, MapPin, Phone, Mail, Clock } from 'lucide-react';
+import { Github, Linkedin, Twitter, Mail, Code, Heart } from 'lucide-react';
 
 const Footer = () => {
   return (
-    <footer className="bg-black text-white">
+    <footer className="bg-slate-900 text-white border-t border-slate-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Brand */}
           <div className="space-y-4">
-            <h3 className="text-2xl font-bold text-amber-500">Serenity Lodge</h3>
-            <p className="text-gray-400 leading-relaxed">
-              Experience luxury dining and cocktails in our elegant lounge and cozy cottage atmosphere.
+            <div className="flex items-center space-x-2">
+              <Code className="h-8 w-8 text-blue-500" />
+              <h3 className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
+                Watty Eventice
+              </h3>
+            </div>
+            <p className="text-slate-400 leading-relaxed">
+              Frontend Developer passionate about creating beautiful, functional, and user-friendly web applications.
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="text-gray-400 hover:text-amber-500 transition-colors duration-300">
-                <Facebook className="h-6 w-6" />
+              <a 
+                href="https://github.com/watty-eventice" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-slate-400 hover:text-white transition-colors duration-300"
+              >
+                <Github className="h-6 w-6" />
               </a>
-              <a href="#" className="text-gray-400 hover:text-amber-500 transition-colors duration-300">
-                <Instagram className="h-6 w-6" />
+              <a 
+                href="https://linkedin.com/in/watty-eventice" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-slate-400 hover:text-blue-400 transition-colors duration-300"
+              >
+                <Linkedin className="h-6 w-6" />
               </a>
-              <a href="#" className="text-gray-400 hover:text-amber-500 transition-colors duration-300">
+              <a 
+                href="https://twitter.com/watty_eventice" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-slate-400 hover:text-blue-400 transition-colors duration-300"
+              >
                 <Twitter className="h-6 w-6" />
               </a>
             </div>
@@ -28,31 +48,31 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div className="space-y-4">
-            <h4 className="text-lg font-semibold text-amber-500">Quick Links</h4>
+            <h4 className="text-lg font-semibold text-blue-400">Navigation</h4>
             <ul className="space-y-2">
               <li>
-                <Link to="/" className="text-gray-400 hover:text-amber-400 transition-colors duration-300">
+                <Link to="/" className="text-slate-400 hover:text-blue-400 transition-colors duration-300">
                   Home
                 </Link>
               </li>
               <li>
-                <Link to="/about" className="text-gray-400 hover:text-amber-400 transition-colors duration-300">
-                  About Us
+                <Link to="/about" className="text-slate-400 hover:text-blue-400 transition-colors duration-300">
+                  About Me
                 </Link>
               </li>
               <li>
-                <Link to="/menu" className="text-gray-400 hover:text-amber-400 transition-colors duration-300">
-                  Menu
+                <Link to="/skills" className="text-slate-400 hover:text-blue-400 transition-colors duration-300">
+                  Skills
                 </Link>
               </li>
               <li>
-                <Link to="/bar" className="text-gray-400 hover:text-amber-400 transition-colors duration-300">
-                  Bar
+                <Link to="/projects" className="text-slate-400 hover:text-blue-400 transition-colors duration-300">
+                  Projects
                 </Link>
               </li>
               <li>
-                <Link to="/gallery" className="text-gray-400 hover:text-amber-400 transition-colors duration-300">
-                  Gallery
+                <Link to="/experience" className="text-slate-400 hover:text-blue-400 transition-colors duration-300">
+                  Experience
                 </Link>
               </li>
             </ul>
@@ -60,54 +80,61 @@ const Footer = () => {
 
           {/* Contact Info */}
           <div className="space-y-4">
-            <h4 className="text-lg font-semibold text-amber-500">Contact Info</h4>
+            <h4 className="text-lg font-semibold text-blue-400">Get In Touch</h4>
             <div className="space-y-3">
-              <div className="flex items-start space-x-3">
-                <MapPin className="h-5 w-5 text-amber-500 mt-0.5 flex-shrink-0" />
-                <p className="text-gray-400 text-sm">
-                  123 Serenity Lane<br />
-                  Mountain View, CA 94041
-                </p>
-              </div>
               <div className="flex items-center space-x-3">
-                <Phone className="h-5 w-5 text-amber-500 flex-shrink-0" />
-                <p className="text-gray-400 text-sm">(555) 123-4567</p>
+                <Mail className="h-5 w-5 text-blue-400 flex-shrink-0" />
+                <a 
+                  href="mailto:watty.eventice@example.com" 
+                  className="text-slate-400 hover:text-blue-400 text-sm transition-colors duration-300"
+                >
+                  watty.eventice@example.com
+                </a>
               </div>
-              <div className="flex items-center space-x-3">
-                <Mail className="h-5 w-5 text-amber-500 flex-shrink-0" />
-                <p className="text-gray-400 text-sm">hello@serenitylodge.com</p>
+              <div className="text-slate-400 text-sm">
+                <p>San Francisco, CA</p>
+                <p>Available for freelance projects</p>
               </div>
             </div>
           </div>
 
-          {/* Hours */}
+          {/* Current Status */}
           <div className="space-y-4">
-            <h4 className="text-lg font-semibold text-amber-500">Hours</h4>
+            <h4 className="text-lg font-semibold text-blue-400">Current Status</h4>
             <div className="space-y-2">
-              <div className="flex items-center space-x-3">
-                <Clock className="h-5 w-5 text-amber-500 flex-shrink-0" />
-                <div className="text-gray-400 text-sm">
-                  <p>Mon - Thu: 5:00 PM - 12:00 AM</p>
-                  <p>Fri - Sat: 5:00 PM - 2:00 AM</p>
-                  <p>Sun: 4:00 PM - 11:00 PM</p>
-                </div>
+              <div className="flex items-center space-x-2">
+                <div className="w-2 h-2 bg-green-400 rounded-full"></div>
+                <span className="text-slate-400 text-sm">Available for work</span>
+              </div>
+              <div className="flex items-center space-x-2">
+                <div className="w-2 h-2 bg-blue-400 rounded-full"></div>
+                <span className="text-slate-400 text-sm">Open to opportunities</span>
+              </div>
+              <div className="flex items-center space-x-2">
+                <div className="w-2 h-2 bg-purple-400 rounded-full"></div>
+                <span className="text-slate-400 text-sm">Remote friendly</span>
               </div>
             </div>
           </div>
         </div>
 
         {/* Bottom Bar */}
-        <div className="mt-12 pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-gray-400 text-sm">
-            © 2024 Serenity Lodge. All rights reserved.
+        <div className="mt-12 pt-8 border-t border-slate-800 flex flex-col md:flex-row justify-between items-center">
+          <p className="text-slate-400 text-sm flex items-center">
+            Made with <Heart className="h-4 w-4 text-red-400 mx-1" /> by Watty Eventice © 2024
           </p>
           <div className="flex space-x-6 mt-4 md:mt-0">
-            <Link to="/privacy" className="text-gray-400 hover:text-amber-400 text-sm transition-colors duration-300">
-              Privacy Policy
+            <Link to="/contact" className="text-slate-400 hover:text-blue-400 text-sm transition-colors duration-300">
+              Contact
             </Link>
-            <Link to="/terms" className="text-gray-400 hover:text-amber-400 text-sm transition-colors duration-300">
-              Terms of Service
-            </Link>
+            <a 
+              href="/resume.pdf" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-slate-400 hover:text-blue-400 text-sm transition-colors duration-300"
+            >
+              Resume
+            </a>
           </div>
         </div>
       </div>
