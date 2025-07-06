@@ -1,238 +1,199 @@
 import React from 'react';
-import { Card, CardContent, CardHeader, CardTitle } from '../components/ui/card';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../components/ui/card';
 import { Badge } from '../components/ui/badge';
-import { Users, Award, Clock, Heart } from 'lucide-react';
-import { teamMembers } from '../data/mockData';
+import { Button } from '../components/ui/button';
+import { Download, Award, Users, Target, Heart } from 'lucide-react';
 
 const About = () => {
+  const values = [
+    {
+      icon: <Target className="w-8 h-8 text-blue-400" />,
+      title: "Purpose-Driven",
+      description: "I believe in creating digital solutions that solve real problems and make a meaningful impact on users' lives."
+    },
+    {
+      icon: <Heart className="w-8 h-8 text-red-400" />,
+      title: "Passion for Excellence",
+      description: "Every line of code I write is crafted with attention to detail, performance, and user experience in mind."
+    },
+    {
+      icon: <Users className="w-8 h-8 text-green-400" />,
+      title: "Collaborative Spirit",
+      description: "I thrive in team environments, believing that the best solutions emerge from diverse perspectives and open communication."
+    },
+    {
+      icon: <Award className="w-8 h-8 text-purple-400" />,
+      title: "Continuous Learning",
+      description: "The tech landscape evolves rapidly, and I'm committed to staying current with the latest tools and best practices."
+    }
+  ];
+
+  const interests = [
+    "UI/UX Design", "Web Performance", "Accessibility", "Open Source", 
+    "Machine Learning", "Photography", "Travel", "Cooking"
+  ];
+
   return (
-    <div className="min-h-screen bg-gray-50 pt-16">
-      {/* Header */}
-      <section className="bg-gradient-to-r from-amber-900 via-amber-800 to-amber-900 text-white py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-5xl md:text-6xl font-bold mb-6">
-            About <span className="text-amber-300">Serenity Lodge</span>
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 pt-20">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        {/* Header */}
+        <div className="text-center mb-16">
+          <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent mb-4">
+            About Me
           </h1>
-          <p className="text-xl md:text-2xl text-amber-100 max-w-3xl mx-auto leading-relaxed">
-            A story of passion, excellence, and unforgettable experiences in the heart of luxury dining
+          <p className="text-xl text-slate-300 max-w-3xl mx-auto">
+            Get to know the person behind the code - my journey, values, and what drives my passion for frontend development
           </p>
         </div>
-      </section>
 
-      {/* Our Story */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <div className="space-y-6">
-              <h2 className="text-4xl md:text-5xl font-bold text-gray-900">
-                Our <span className="text-amber-600">Story</span>
-              </h2>
-              <p className="text-lg text-gray-600 leading-relaxed">
-                Serenity Lodge began as a dream to create a space where luxury meets comfort, where every meal becomes a celebration, and where memories are made around every corner. Founded in 2018, we've grown from a small cottage-style restaurant into a premier dining destination.
-              </p>
-              <p className="text-lg text-gray-600 leading-relaxed">
-                Our philosophy is simple: exceptional ingredients, masterful preparation, and genuine hospitality. We believe that dining is not just about food—it's about creating experiences that touch the soul and bring people together.
-              </p>
-              <p className="text-lg text-gray-600 leading-relaxed">
-                From our carefully curated wine selection to our innovative cocktail program, every element at Serenity Lodge is designed to exceed expectations and create moments of pure serenity.
-              </p>
+        {/* Main Content Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
+          {/* Left Column - Personal Story */}
+          <div className="space-y-8">
+            <Card className="bg-slate-800/50 border-slate-700">
+              <CardHeader>
+                <CardTitle className="text-2xl text-white">My Story</CardTitle>
+                <CardDescription className="text-slate-400">
+                  From curiosity to career
+                </CardDescription>
+              </CardHeader>
+              <CardContent className="space-y-4 text-slate-300">
+                <p>
+                  My journey into frontend development began with a simple curiosity about how websites work. 
+                  What started as tweaking MySpace profiles evolved into a deep passion for creating beautiful, 
+                  functional digital experiences.
+                </p>
+                <p>
+                  Over the past 3+ years, I've had the privilege of working with talented teams to build 
+                  applications that serve thousands of users. Each project has taught me something new about 
+                  the art and science of frontend development.
+                </p>
+                <p>
+                  I'm particularly drawn to the intersection of design and technology - finding elegant solutions 
+                  to complex problems while ensuring every user interaction feels intuitive and delightful.
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="bg-slate-800/50 border-slate-700">
+              <CardHeader>
+                <CardTitle className="text-2xl text-white">Beyond Code</CardTitle>
+                <CardDescription className="text-slate-400">
+                  What keeps me inspired
+                </CardDescription>
+              </CardHeader>
+              <CardContent className="space-y-4 text-slate-300">
+                <p>
+                  When I'm not coding, you can find me exploring new design trends, contributing to open-source 
+                  projects, or experimenting with emerging technologies. I believe that the best developers are 
+                  those who remain curious and never stop learning.
+                </p>
+                <p>
+                  I'm also passionate about mentoring aspiring developers and believe in the power of community 
+                  to elevate everyone's skills and knowledge.
+                </p>
+                <div className="flex flex-wrap gap-2 mt-4">
+                  {interests.map((interest, index) => (
+                    <Badge key={index} variant="secondary" className="bg-slate-700 text-slate-300">
+                      {interest}
+                    </Badge>
+                  ))}
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+
+          {/* Right Column - Professional Photo & Quick Facts */}
+          <div className="space-y-8">
+            <div className="relative">
+              <div className="aspect-square overflow-hidden rounded-2xl shadow-2xl">
+                <img 
+                  src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500&h=500&fit=crop&crop=face" 
+                  alt="Watty Eventice" 
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/20 to-transparent"></div>
+              </div>
+              <div className="absolute -bottom-6 -right-6 bg-slate-800/90 backdrop-blur-md rounded-xl p-4 shadow-xl">
+                <div className="text-center">
+                  <div className="text-2xl font-bold text-blue-400">3+</div>
+                  <div className="text-xs text-slate-300">Years Experience</div>
+                </div>
+              </div>
             </div>
-            <div className="space-y-6">
-              <img
-                src="https://images.unsplash.com/photo-1580719996124-1b5c300d251a"
-                alt="Serenity Lodge Interior"
-                className="w-full rounded-lg shadow-2xl"
-              />
-            </div>
+
+            <Card className="bg-slate-800/50 border-slate-700">
+              <CardHeader>
+                <CardTitle className="text-xl text-white">Quick Facts</CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-3 text-slate-300">
+                <div className="flex justify-between">
+                  <span>Location:</span>
+                  <span className="text-blue-400">San Francisco, CA</span>
+                </div>
+                <div className="flex justify-between">
+                  <span>Specialization:</span>
+                  <span className="text-blue-400">Frontend Development</span>
+                </div>
+                <div className="flex justify-between">
+                  <span>Preferred Stack:</span>
+                  <span className="text-blue-400">React, TypeScript, Tailwind</span>
+                </div>
+                <div className="flex justify-between">
+                  <span>Coffee Preference:</span>
+                  <span className="text-blue-400">Dark Roast, Black ☕</span>
+                </div>
+                <div className="flex justify-between">
+                  <span>Status:</span>
+                  <span className="text-green-400">Available for Projects</span>
+                </div>
+              </CardContent>
+            </Card>
           </div>
         </div>
-      </section>
 
-      {/* Values */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-              Our <span className="text-amber-600">Values</span>
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              The principles that guide everything we do at Serenity Lodge
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <Card className="text-center hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border-0 shadow-lg">
-              <CardHeader>
-                <div className="w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Award className="h-8 w-8 text-amber-600" />
-                </div>
-                <CardTitle className="text-xl font-bold text-gray-900">Excellence</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-gray-600 leading-relaxed">
-                  We strive for perfection in every dish, every service, and every interaction with our guests.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="text-center hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border-0 shadow-lg">
-              <CardHeader>
-                <div className="w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Heart className="h-8 w-8 text-amber-600" />
-                </div>
-                <CardTitle className="text-xl font-bold text-gray-900">Passion</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-gray-600 leading-relaxed">
-                  Our love for culinary arts and hospitality drives us to create extraordinary experiences.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="text-center hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border-0 shadow-lg">
-              <CardHeader>
-                <div className="w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Users className="h-8 w-8 text-amber-600" />
-                </div>
-                <CardTitle className="text-xl font-bold text-gray-900">Community</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-gray-600 leading-relaxed">
-                  We believe in bringing people together and supporting our local community and suppliers.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="text-center hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border-0 shadow-lg">
-              <CardHeader>
-                <div className="w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Clock className="h-8 w-8 text-amber-600" />
-                </div>
-                <CardTitle className="text-xl font-bold text-gray-900">Tradition</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-gray-600 leading-relaxed">
-                  We honor culinary traditions while embracing innovation and modern techniques.
-                </p>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-      </section>
-
-      {/* Team */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-              Meet Our <span className="text-amber-600">Team</span>
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              The talented professionals who make Serenity Lodge extraordinary
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {teamMembers.map((member) => (
-              <Card key={member.id} className="group hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border-0 shadow-lg overflow-hidden">
-                <div className="relative overflow-hidden">
-                  <img
-                    src={member.image}
-                    alt={member.name}
-                    className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-300"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                </div>
+        {/* Core Values */}
+        <div className="mb-16">
+          <h2 className="text-3xl font-bold text-white text-center mb-12">Core Values</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {values.map((value, index) => (
+              <Card key={index} className="bg-slate-800/50 border-slate-700 hover:bg-slate-800/70 transition-all duration-300 group hover:scale-105">
                 <CardHeader className="text-center">
-                  <CardTitle className="text-xl font-bold text-gray-900 group-hover:text-amber-600 transition-colors duration-300">
-                    {member.name}
-                  </CardTitle>
-                  <Badge className="bg-amber-600 text-white w-fit mx-auto">
-                    {member.role}
-                  </Badge>
+                  <div className="mx-auto mb-4 p-3 bg-slate-700/50 rounded-full w-fit group-hover:scale-110 transition-transform">
+                    {value.icon}
+                  </div>
+                  <CardTitle className="text-lg text-white">{value.title}</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-gray-600 leading-relaxed text-center">
-                    {member.bio}
+                  <p className="text-slate-300 text-sm text-center leading-relaxed">
+                    {value.description}
                   </p>
                 </CardContent>
               </Card>
             ))}
           </div>
         </div>
-      </section>
 
-      {/* Awards & Recognition */}
-      <section className="py-20 bg-amber-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-              Awards & <span className="text-amber-600">Recognition</span>
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              We're honored to be recognized by industry leaders and valued guests
+        {/* Call to Action */}
+        <div className="text-center">
+          <div className="bg-slate-800/30 rounded-2xl p-8 backdrop-blur-sm">
+            <h2 className="text-2xl font-bold text-white mb-4">Let's Work Together</h2>
+            <p className="text-slate-300 mb-6 max-w-2xl mx-auto">
+              I'm always excited to take on new challenges and collaborate with fellow creators. 
+              Whether you have a project in mind or just want to chat about frontend development, I'd love to hear from you.
             </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <Card className="text-center hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border-0 shadow-lg">
-              <CardHeader>
-                <div className="w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span className="text-2xl">🏆</span>
-                </div>
-                <CardTitle className="text-xl font-bold text-gray-900">Best Fine Dining 2023</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-gray-600 leading-relaxed">
-                  Awarded by the Metropolitan Restaurant Association for outstanding culinary excellence.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="text-center hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border-0 shadow-lg">
-              <CardHeader>
-                <div className="w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span className="text-2xl">⭐</span>
-                </div>
-                <CardTitle className="text-xl font-bold text-gray-900">5-Star Rating</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-gray-600 leading-relaxed">
-                  Consistently rated 5 stars by our guests across all major review platforms.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="text-center hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border-0 shadow-lg">
-              <CardHeader>
-                <div className="w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span className="text-2xl">🍷</span>
-                </div>
-                <CardTitle className="text-xl font-bold text-gray-900">Wine Spectator Award</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-gray-600 leading-relaxed">
-                  Recognized for our exceptional wine selection and sommelier expertise.
-                </p>
-              </CardContent>
-            </Card>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-3 rounded-full">
+                <Download className="w-4 h-4 mr-2" />
+                Download Resume
+              </Button>
+              <Button variant="outline" className="border-slate-600 text-slate-300 hover:bg-slate-800 px-8 py-3 rounded-full">
+                Get In Touch
+              </Button>
+            </div>
           </div>
         </div>
-      </section>
-
-      {/* Mission Statement */}
-      <section className="py-20 bg-gray-900 text-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-4xl md:text-5xl font-bold mb-8">
-            Our <span className="text-amber-500">Mission</span>
-          </h2>
-          <p className="text-xl md:text-2xl text-gray-300 leading-relaxed italic mb-8">
-            "To create extraordinary dining experiences that inspire, delight, and bring people together 
-            through exceptional cuisine, impeccable service, and an atmosphere of warmth and elegance."
-          </p>
-          <div className="w-24 h-1 bg-amber-500 mx-auto"></div>
-        </div>
-      </section>
+      </div>
     </div>
   );
 };
